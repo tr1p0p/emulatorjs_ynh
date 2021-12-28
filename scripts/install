@@ -96,7 +96,6 @@ ynh_app_setting_set --app=$app --key=port --value=$port
 
 Open the port
 ynh_script_progression --message="Configuring firewall..." --time --weight=1
-ynh_exec_warn_less yunohost firewall allow --no-upnp TCP $port
 
 #=================================================
 # INSTALL DEPENDENCIES
@@ -263,27 +262,6 @@ ynh_script_progression --message="Configuring a systemd service..." --time --wei
 ynh_add_systemd_config
 
 #=================================================
-# SETUP APPLICATION WITH CURL
-#=================================================
-
-### Use these lines only if the app installation needs to be finalized through
-### web forms. We generally don't want to ask the final user,
-### so we're going to use curl to automatically fill the fields and submit the
-### forms.
-
-# Set the app as temporarily public for curl call
-ynh_script_progression --message="Configuring SSOwat..." --time --weight=1
-# Making the app public for curl
-ynh_permission_update --permission="main" --add="visitors"
-
-# Installation with curl
-ynh_script_progression --message="Finalizing installation..." --time --weight=1
-ynh_local_curl "/INSTALL_PATH" "key1=value1" "key2=value2" "key3=value3"
-
-# Remove the public access
-ynh_permission_update --permission="main" --remove="visitors"
-
-#=================================================
 # GENERIC FINALIZATION
 #=================================================
 # SETUP LOGROTATE
@@ -315,7 +293,7 @@ ynh_script_progression --message="Integrating service in YunoHost..." --time --w
 ###		- As well as the section "INTEGRATE SERVICE IN YUNOHOST" in the restore script
 ###		- And the section "INTEGRATE SERVICE IN YUNOHOST" in the upgrade script
 
-yunohost service add $app --description="A short description of the app" --log="/var/log/$app/$app.log"
+yunohost service add $app --description="IPFS Daemon for emulatorJS" --log="/var/log/$app/$app.log"
 
 ### Additional options starting with 3.8:
 ###
