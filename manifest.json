@@ -26,7 +26,6 @@
     "multi_instance": true,
     "services": [
         "nginx",
-        "go-ipfs",
         "nodejs"
         
     ],
