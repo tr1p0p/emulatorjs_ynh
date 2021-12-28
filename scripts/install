@@ -105,7 +105,6 @@ ynh_script_progression --message="Installing dependencies..." --time --weight=1
 ###		- As well as the section "REINSTALL DEPENDENCIES" in the restore script
 ###		- And the section "UPGRADE DEPENDENCIES" in the upgrade script
 
-ynh_install_nodejs --nodejs_version=$nodejs_version
 ynh_use_nodejs
 ynh_install_app_dependencies $pkg_dependencies
 
