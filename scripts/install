@@ -87,16 +87,16 @@ ynh_script_progression --message="Finding an available port..." --time --weight=
 ###		- Remove the section "CLOSE A PORT" in the remove script
 
 # Find an available port
-port=$(ynh_find_port --port=8095)
+port=$(ynh_find_port --port=3000)
 ynh_app_setting_set --app=$app --key=port --value=$port
 
 # Optional: Expose this port publicly
 # (N.B.: you only need to do this if the app actually needs to expose the port publicly.
 # If you do this and the app doesn't actually need you are CREATING SECURITY HOLES IN THE SERVER !)
 
-# Open the port
-# ynh_script_progression --message="Configuring firewall..." --time --weight=1
-# ynh_exec_warn_less yunohost firewall allow --no-upnp TCP $port
+Open the port
+ynh_script_progression --message="Configuring firewall..." --time --weight=1
+ynh_exec_warn_less yunohost firewall allow --no-upnp TCP $port
 
 #=================================================
 # INSTALL DEPENDENCIES
@@ -111,6 +111,8 @@ ynh_script_progression --message="Installing dependencies..." --time --weight=1
 ###		- As well as the section "REINSTALL DEPENDENCIES" in the restore script
 ###		- And the section "UPGRADE DEPENDENCIES" in the upgrade script
 
+ynh_install_nodejs --nodejs_version=$nodejs_version
+ynh_use_nodejs
 ynh_install_app_dependencies $pkg_dependencies
 
 #=================================================
@@ -120,25 +122,6 @@ ynh_script_progression --message="Configuring system user..." --time --weight=1
 
 # Create a system user
 ynh_system_user_create --username=$app --home_dir="$final_path"
-
-#=================================================
-# CREATE A MYSQL DATABASE
-#=================================================
-ynh_script_progression --message="Creating a MySQL database..." --time --weight=1
-
-### Use these lines if you need a database for the application.
-### `ynh_mysql_setup_db` will create a database, an associated user and a ramdom password.
-### The password will be stored as 'mysqlpwd' into the app settings,
-### and will be available as $db_pwd
-### If you're not using these lines:
-###		- Remove the section "BACKUP THE MYSQL DATABASE" in the backup script
-###		- Remove also the section "REMOVE THE MYSQL DATABASE" in the remove script
-###		- As well as the section "RESTORE THE MYSQL DATABASE" in the restore script
-
-db_name=$(ynh_sanitize_dbid --db_name=$app)
-db_user=$db_name
-ynh_app_setting_set --app=$app --key=db_name --value=$db_name
-ynh_mysql_setup_db --db_user=$db_user --db_name=$db_name
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
