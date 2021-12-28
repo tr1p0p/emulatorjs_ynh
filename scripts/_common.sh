@@ -5,7 +5,7 @@
 #=================================================
 
 # dependencies used by the app
-pkg_dependencies="curl nodejs npm p7zip zip go-ipfs python3"
+pkg_dependencies="curl nodejs npm p7zip zip python3"
 
 #=================================================
 # PERSONAL HELPERS
