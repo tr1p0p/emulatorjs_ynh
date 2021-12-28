@@ -1,7 +1,7 @@
 {
     "name": "Emulator JS",
     "id": "emulatorjs",
-    "packaging_format": "1",
+    "packaging_format": 1,
     "description": {
         "en": "Web based retro emulation frontend with rom scanning and automated art ingestion.",
         "fr": "Emulateurs Web avec scan de ROMS et interface automatique"
@@ -9,13 +9,13 @@
     "version": "1.0~ynh1",
     "url": "https://www.emulatorjs.com/",
     "upstream": {
-        "license": "free",
+        "license": "GPL-3.0-or-later",
         "website": "https://github.com/linuxserver/emulatorjs",
         "admindoc": "https://github.com/linuxserver/emulatorjs",
         "userdoc": "https://github.com/linuxserver/emulatorjs",
         "code": "https://github.com/linuxserver/emulatorjs"
     },
-    "license": "free",
+    "license": "GPL-3.0-or-later",
     "maintainer": {
         "name": "Tripop",
         "email": "tripop@nullmoon.host"
