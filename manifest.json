@@ -17,7 +17,7 @@
         "code": "https://some.forge.com/example/example"
     },
     "license": "free",
-    "maintainer": "tr1p0p" {
+    "maintainer": "tr1p0p", {
         "name": "John doe",
         "email": "john.doe@example.com"
     },
