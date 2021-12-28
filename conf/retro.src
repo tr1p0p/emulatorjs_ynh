@@ -1,0 +1,7 @@
+SOURCE_URL=https://github.com/linuxserver/libretro-cores/archive/master.tar.gz
+SOURCE_SUM=
+SOURCE_SUM_PRG=
+SOURCE_FORMAT=tar.gz
+SOURCE_IN_SUBDIR=true
+SOURCE_FILENAME=
+SOURCE_EXTRACT=true
