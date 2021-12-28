@@ -17,9 +17,9 @@
         "code": "https://some.forge.com/example/example"
     },
     "license": "free",
-    "maintainer": "tr1p0p", {
-        "name": "John doe",
-        "email": "john.doe@example.com"
+    "maintainer": {
+        "name": "Tripop",
+        "email": "tripop@nullmoon.host"
     },
     "requirements": {
         "yunohost": ">= 4.3.0"
