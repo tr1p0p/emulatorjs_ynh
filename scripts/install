@@ -94,8 +94,8 @@ ynh_app_setting_set --app=$app --key=port --value=$port
 # (N.B.: you only need to do this if the app actually needs to expose the port publicly.
 # If you do this and the app doesn't actually need you are CREATING SECURITY HOLES IN THE SERVER !)
 
-Open the port
-ynh_script_progression --message="Configuring firewall..." --time --weight=1
+#Open the port
+#ynh_script_progression --message="Configuring firewall..." --time --weight=1
 
 #=================================================
 # INSTALL DEPENDENCIES
