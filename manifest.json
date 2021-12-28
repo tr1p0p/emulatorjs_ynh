@@ -1,7 +1,7 @@
 {
     "name": "Emulator JS",
     "id": "emulatorjs",
-    "packaging_format": "1.4.3",
+    "packaging_format": "1",
     "description": {
         "en": "Web based retro emulation frontend with rom scanning and automated art ingestion.",
         "fr": "Emulateurs Web avec scan de ROMS et interface automatique"
