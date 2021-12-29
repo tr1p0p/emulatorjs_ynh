@@ -1,0 +1,7 @@
+SOURCE_URL=https://github.com/ipfs/go-ipfs/releases/download/v0.11.0/go-ipfs-source.tar.gz
+SOURCE_SUM=sha256 checksum
+SOURCE_SUM_PRG=sha256sum
+SOURCE_FORMAT=tar.gz
+SOURCE_IN_SUBDIR=true
+SOURCE_FILENAME=go-ipfs
+SOURCE_EXTRACT=true
