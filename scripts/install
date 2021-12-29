@@ -105,7 +105,6 @@ ynh_script_progression --message="Installing dependencies..." --time --weight=1
 ###		- As well as the section "REINSTALL DEPENDENCIES" in the restore script
 ###		- And the section "UPGRADE DEPENDENCIES" in the upgrade script
 
-ynh_use_nodejs
 ynh_install_app_dependencies $pkg_dependencies
 
 #=================================================
@@ -130,6 +129,7 @@ ynh_app_setting_set --app=$app --key=final_path --value=$final_path
 ynh_setup_source --dest_dir="$final_path" --source_id="app"
 ynh_setup_source --dest_dir="$final_path/frontend/" --source_id="base"
 ynh_setup_source --dest_dir="$final_path/frontend/" --source_id="retro"
+ynh_setup_source --dest_dir=
 ynh_npm_install
 ExecStart=$ynh_node index.js
 
@@ -156,8 +156,12 @@ ynh_add_nginx_config
 #=================================================
 # SPECIFIC SETUP
 #=================================================
-# ...
+# MAKE INSTALL
 #=================================================
+ynh_script_progression --message="Making install..."
+
+#Install Go to build go-ipfs from source
+
 
 #=================================================
 # CREATE DATA DIRECTORY
