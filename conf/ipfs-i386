@@ -1,5 +1,5 @@
 SOURCE_URL=https://ipfs.io/ipns/dist.ipfs.io/go-ipfs/v0.11.0/go-ipfs_v0.11.0_linux-386.tar.gz
-SOURCE_SUM=sha256 checksum
+SOURCE_SUM=56379ae397650ad72d2faaa0a4006bf3ddbfcbf4a8d08c9fee905e88375ec693
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
 SOURCE_IN_SUBDIR=true
