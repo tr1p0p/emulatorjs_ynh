@@ -1,5 +1,5 @@
-SOURCE_URL=https://api.github.com/repos/linuxserver/emulatorjs/releases/latest
-SOURCE_SUM=sha256 checksum
+SOURCE_URL=https://github.com/linuxserver/emulatorjs/archive/refs/tags/1.4.3.zip
+SOURCE_SUM=2aa156136fa4d55728ccb86629a1b92387150647e6fe305dcb67cc475cf60d0f
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
 SOURCE_IN_SUBDIR=true
