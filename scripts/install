@@ -133,7 +133,7 @@ ynh_setup_source --dest_dir="$final_path" --source_id="app"
 ynh_setup_source --dest_dir="$final_path" --source_id="ipfs-$YNH_ARCH"
 
 ExecStart=$final_path/setup_dev.sh
-ExecStart=$ynh_node index.js
+ExecStart=$ynh_node $final_path/index.js
 
 # FIXME: this should be managed by the core in the future
 # Here, as a packager, you may have to tweak the ownerhsip/permissions
