@@ -130,21 +130,12 @@ tempdir="$(mktemp -d)"
 #ynh_setup_source --dest_dir="$final_path/frontend/" --source_id="retro"
 ynh_app_setting_set --app=$app --key=final_path --value=$final_path
 
-#Install IPFS-Daemon
+#IPFS-Daemon source
 ynh_setup_source --dest_dir=$tempdir --source_id="ipfs-$YNH_ARCH"
-ynh_exec_warn_less $tempdir/install.sh
 
-#install app with setup_dev scriptwith npm deps installation before
+#App source
 ynh_setup_source --dest_dir="$final_path" --source_id="app"
-cd $final_path
-ynh_use_nodejs
-sed '/npm/s/^#//g' -i setup_dev.sh
-ynh_exec_warn_less $ynh_node_load_PATH $ynh_npm install
-ynh_exec_warn_less $ynh_node_load_PATH $final_path/setup_dev.sh
 
-ynh_use_node(){
-ExecStart=__YNH_NODE__ $final_path/index.js
-}
 
 # FIXME: this should be managed by the core in the future
 # Here, as a packager, you may have to tweak the ownerhsip/permissions
@@ -173,8 +164,18 @@ ynh_add_nginx_config
 #=================================================
 ynh_script_progression --message="Making install..."
 
-#Install Go to build go-ipfs from source
+#IPFS-Daemon install
+ynh_exec_warn_less $tempdir/install.sh
 
+#Install app from setup_dev script
+
+cd $final_path
+ynh_use_nodejs
+ynh_exec_warn_less $ynh_node_load_PATH $final_path/setup_dev.sh
+
+ynh_use_node(){
+ExecStart=__YNH_NODE__ $final_path/index.js
+}
 
 #=================================================
 # CREATE DATA DIRECTORY
