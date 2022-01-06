@@ -106,6 +106,7 @@ ynh_script_progression --message="Installing dependencies..." --time --weight=1
 ###		- And the section "UPGRADE DEPENDENCIES" in the upgrade script
 
 ynh_install_app_dependencies $pkg_dependencies
+ynh_use_nodejs
 ynh_install_nodejs --nodejs_version=9
 
 #=================================================
@@ -168,7 +169,6 @@ ynh_script_progression --message="Making install..."
 mv $tempdir/ipfs /usr/local/bin
 
 #Install app from setup_dev script
-ynh_use_nodejs
 cd $final_path
 $ynh_node_load_PATH $final_path/setup_dev.sh
 $ynh_node index.js
