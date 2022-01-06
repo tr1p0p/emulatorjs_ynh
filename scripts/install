@@ -134,11 +134,11 @@ ynh_app_setting_set --app=$app --key=final_path --value=$final_path
 ynh_setup_source --dest_dir=$tempdir --source_id="ipfs-$YNH_ARCH"
 ynh_exec_warn_less $tempdir/install.sh
 
-#install app with setup_dev script
+#install app with setup_dev scriptwith npm deps installation before
 ynh_setup_source --dest_dir="$final_path" --source_id="app"
 cd $final_path
 ynh_use_nodejs
-ynh_exec_as $app $ynh_node_load_PATH $ynh_npm install bufferutil utf-8-validate
+$ynh_node_load_PATH $ynh_npm install bufferutil utf-8-validate
 ynh_exec_warn_less $ynh_node_load_PATH $final_path/setup_dev.sh
 
 ynh_use_node(){
