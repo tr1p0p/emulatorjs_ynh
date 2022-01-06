@@ -129,14 +129,17 @@ tempdir="$(mktemp -d)"
 #ynh_setup_source --dest_dir="$final_path/frontend/" --source_id="base"
 #ynh_setup_source --dest_dir="$final_path/frontend/" --source_id="retro"
 ynh_app_setting_set --app=$app --key=final_path --value=$final_path
+
 #Install IPFS-Daemon
 ynh_setup_source --dest_dir=$tempdir --source_id="ipfs-$YNH_ARCH"
 ynh_exec_warn_less $tempdir/install.sh
 
+#install app with setup_dev script
 ynh_setup_source --dest_dir="$final_path" --source_id="app"
 cd $final_path
-ynh_npm_install bufferutil utf-8-validate
-ynh_exec_warn_less $final_path/setup_dev.sh
+ynh_use_nodejs
+$ynh_npm_install bufferutil utf-8-validate
+ynh_exec_warn_less $ynh_node_load_PATH $final_path/setup_dev.sh
 
 ynh_use_node(){
 ExecStart=__YNH_NODE__ $final_path/index.js
