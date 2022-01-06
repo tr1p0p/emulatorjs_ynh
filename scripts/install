@@ -139,7 +139,7 @@ ynh_setup_source --dest_dir="$final_path" --source_id="app"
 cd $final_path
 ynh_use_nodejs
 sed '/npm/s/^#//g' -i setup_dev.sh
-ynh_npm install
+ynh_exec_warn_less $ynh_node_load_PATH $ynh_npm install
 ynh_exec_warn_less $ynh_node_load_PATH $final_path/setup_dev.sh
 
 ynh_use_node(){
