@@ -165,16 +165,13 @@ ynh_add_nginx_config
 ynh_script_progression --message="Making install..."
 
 #IPFS-Daemon install
-ynh_exec_warn_less $tempdir/install.sh
+ynh_exec_as $app $tempdir/install.sh
 
 #Install app from setup_dev script
 ynh_use_nodejs
-cd $final_path
-$ynh_node_load_PATH setup_dev.sh
+ynh_exec_as $appcd $final_path
+ynh_exec_as $app $ynh_node_load_PATH setup_dev.sh
 
-ynh_use_node(){
-ExecStart=__YNH_NODE__ $final_path/index.js
-}
 
 #=================================================
 # CREATE DATA DIRECTORY
