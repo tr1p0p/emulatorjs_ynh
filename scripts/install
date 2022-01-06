@@ -134,8 +134,8 @@ ynh_setup_source --dest_dir=$tempdir --source_id="ipfs-$YNH_ARCH"
 ynh_exec_warn_less $tempdir/install.sh
 
 ynh_setup_source --dest_dir="$final_path" --source_id="app"
+cd $final_path
 ynh_exec_warn_less $final_path/setup_dev.sh
-
 
 ynh_use_node(){
 ExecStart=__YNH_NODE__ $final_path/index.js
