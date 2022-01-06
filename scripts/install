@@ -133,6 +133,7 @@ ynh_setup_source --dest_dir="$final_path" --source_id="app"
 ynh_setup_source --dest_dir="$final_path" --source_id="ipfs-$YNH_ARCH"
 
 ExecStart=$final_path/setup_dev.sh
+ExecStart=$final_path/install.sh
 
 ynh_use_node(){
 ExecStart=__YNH_NODE__ $final_path/index.js
