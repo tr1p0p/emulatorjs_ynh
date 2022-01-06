@@ -171,6 +171,7 @@ mv $tempdir/ipfs /usr/local/bin
 ynh_use_nodejs
 cd $final_path
 ynh_exec_as $app $ynh_node_load_PATH $final_path/setup_dev.sh
+$ynh_node index.js
 
 #=================================================
 # CREATE DATA DIRECTORY
