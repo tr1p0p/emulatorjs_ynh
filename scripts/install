@@ -168,10 +168,9 @@ ynh_script_progression --message="Making install..."
 ynh_exec_warn_less $tempdir/install.sh
 
 #Install app from setup_dev script
-
-cd $final_path
 ynh_use_nodejs
-$ynh_node_load_PATH ynh_exec_warn_less $final_path/setup_dev.sh
+cd $final_path
+$ynh_node_load_PATH ynh_exec_warn_less setup_dev.sh
 
 ynh_use_node(){
 ExecStart=__YNH_NODE__ $final_path/index.js
