@@ -171,7 +171,7 @@ ynh_exec_warn_less $tempdir/install.sh
 
 cd $final_path
 ynh_use_nodejs
-ynh_exec_warn_less $ynh_node_load_PATH $final_path/setup_dev.sh
+$ynh_node_load_PATH ynh_exec_warn_less $final_path/setup_dev.sh
 
 ynh_use_node(){
 ExecStart=__YNH_NODE__ $final_path/index.js
