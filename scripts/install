@@ -135,6 +135,7 @@ ynh_exec_warn_less $tempdir/install.sh
 
 ynh_setup_source --dest_dir="$final_path" --source_id="app"
 cd $final_path
+ynh_npm_install bufferutil utf-8-validate
 ynh_exec_warn_less $final_path/setup_dev.sh
 
 ynh_use_node(){
