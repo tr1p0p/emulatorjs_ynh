@@ -170,7 +170,7 @@ ynh_exec_warn_less $tempdir/install.sh
 #Install app from setup_dev script
 ynh_use_nodejs
 cd $final_path
-$ynh_node_load_PATH ynh_exec_warn_less setup_dev.sh
+$ynh_node_load_PATH setup_dev.sh
 
 ynh_use_node(){
 ExecStart=__YNH_NODE__ $final_path/index.js
