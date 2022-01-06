@@ -170,7 +170,7 @@ ynh_exec_warn_less $tempdir/install.sh
 #Install app from setup_dev script
 ynh_use_nodejs
 cd $final_path
-ynh_exec_as $app $final_path/setup_dev.sh
+ynh_exec_as $app $ynh_node_load_PATH $final_path/setup_dev.sh
 
 #=================================================
 # CREATE DATA DIRECTORY
