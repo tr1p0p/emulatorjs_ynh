@@ -22,7 +22,7 @@ After=network.target
 # enable for 1-1024 port listening
 #AmbientCapabilities=CAP_NET_BIND_SERVICE 
 # enable to specify a custom path see docs/environment-variables.md for further documentations
-#Environment=IPFS_PATH=/custom/ipfs/path
+Environment=IPFS_PATH=/usr/local/bin/ipfs
 # enable to specify a higher limit for open files/connections
 #LimitNOFILE=1000000
 
@@ -46,4 +46,4 @@ Restart=on-failure
 KillSignal=SIGINT
 
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target
