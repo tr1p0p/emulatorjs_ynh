@@ -170,7 +170,7 @@ mv $tempdir/ipfs /usr/local/bin
 
 #Install app from setup_dev script
 cd $final_path
-$ynh_npm install
+ynh_exec_as $app $ynh_npm install
 #$ynh_node_load_PATH $final_path/setup_dev.sh
 $ynh_node index.js
 
